@@ -12,13 +12,15 @@ module.exports = {
   module: {
     rules: [
       {
-        // regular css files
         test: /\.css$/,
         use: ["style-loader", "css-loader"]
       },
       {
         test: /\.(sass|scss)$/,
-        use: ["style-loader", "css-loader", "sass-loader"]
+        use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: ["css-loader", "sass-loader"]
+        })
       },
       {
         test: /\.(png|jpg)$/,
@@ -26,6 +28,11 @@ module.exports = {
           "file-loader?name=[name].[ext]&outputPath=images/",
           "image-webpack-loader"
         ]
+      },
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: ["babel-loader"]
       }
     ]
   },
