@@ -13,13 +13,14 @@
   width: 100%;
   box-shadow: 0px 2px 5px -1px rgba(0, 0, 0, 0.05);
 }
+
 .header-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 80px;
 
   .menu__list {
-    list-style: none;
     display: flex;
 
     .menu__item {
@@ -42,19 +43,74 @@
     align-items: center;
     .avatar__person {
       margin-left: 10px;
-      .person__name,
-      .person__title {
-        margin: 0;
-        color: $purple-dark;
-      }
-
-      .person__name {
-        font-weight: 600;
-      }
-
-      .person__title {
-        font-weight: 400;
-      }
     }
   }
+}
+.little__title,
+.little__subtitle {
+  margin: 0;
+  color: $purple-dark;
+}
+
+.little__title {
+  font-weight: 600;
+}
+
+.little__subtitle {
+  font-weight: 400;
+}
+
+.main {
+  background-color: #f9fafc;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.main__title {
+  margin: 0;
+  padding: 20px 0;
+}
+
+.list__item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.monster__item {
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 10px;
+}
+
+.monster__identify {
+  margin-left: 10px;
+  line-height: 18px;
+}
+
+.monster__info,
+.monster__spec {
+  display: flex;
+  align-items: center;
+}
+
+.monster__spec {
+  .strength__bar {
+    width: 200px;
+    background-color: #edeef2;
+    border-radius: 10px;
+
+    .strength__level {
+      height: 10px;
+      border-radius: 10px;
+      background-color: $purple-light;
+    }
+  }
+}
+
+.strength__number {
+  margin: 0 20px;
 }

@@ -7,7 +7,7 @@ const Header = () => (
     <div className="header-bar container">
       <img className="header-bar__brand" src={logo} alt="" />
       <div className="header-bar__menu">
-        <ul className="menu__list">
+        <ul className="menu__list list">
           <li className="menu__item">
             <a className="menu__link" href="#">
               Gnoms
@@ -24,8 +24,8 @@ const Header = () => (
       <div className="header-bar__avatar">
         <img src={avatar} alt="" />
         <div className="avatar__person">
-          <h5 className="person__name">Robert Łabuś</h5>
-          <h6 className="person__title">Game Master</h6>
+          <h5 className="person__name little__title">Robert Łabuś</h5>
+          <h6 className="person__title little__subtitle">Game Master</h6>
         </div>
       </div>
     </div>
