@@ -1,3 +1,60 @@
-body {
+@import "variables";
+
+#root {
   font-family: "Work Sans", sans-serif;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+.header {
+  background-color: #fff;
+  width: 100%;
+  box-shadow: 0px 2px 5px -1px rgba(0, 0, 0, 0.05);
+}
+.header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .menu__list {
+    list-style: none;
+    display: flex;
+
+    .menu__item {
+      margin: 0 10px;
+    }
+  }
+
+  &__button {
+    background-color: $purple-light;
+    color: #ffffff;
+    border: 0;
+    font-weight: 600;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  &__avatar {
+    display: flex;
+    align-items: center;
+    .avatar__person {
+      margin-left: 10px;
+      .person__name,
+      .person__title {
+        margin: 0;
+        color: $purple-dark;
+      }
+
+      .person__name {
+        font-weight: 600;
+      }
+
+      .person__title {
+        font-weight: 400;
+      }
+    }
+  }
 }
