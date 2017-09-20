@@ -19,6 +19,13 @@ module.exports = {
       {
         test: /\.(sass|scss)$/,
         use: ["style-loader", "css-loader", "sass-loader"]
+      },
+      {
+        test: /\.(png|jpg)$/,
+        use: [
+          "file-loader?name=[name].[ext]&outputPath=images/",
+          "image-webpack-loader"
+        ]
       }
     ]
   },
@@ -29,7 +36,6 @@ module.exports = {
   },
   plugins: [
     new ExtractTextPlugin({
-      // define where to save the file
       filename: "[name].bundle.css",
       allChunks: true
     }),

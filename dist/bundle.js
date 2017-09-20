@@ -60,7 +60,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "c411ae59682cea121430"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "45c30f4fff81e7b857f5"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -734,7 +734,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "body {\n  background-color: red; }\n", ""]);
+exports.push([module.i, "body {\n  max-width: 1400px; }\n", ""]);
 
 // exports
 
