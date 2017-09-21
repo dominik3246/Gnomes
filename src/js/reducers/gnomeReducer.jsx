@@ -1,4 +1,4 @@
-export default function reducer(
+export default function gnomeReducer(
   state = {
     gnomes: [],
     fetching: false,

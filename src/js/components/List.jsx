@@ -6,8 +6,8 @@ import { fetchGnomes } from '../actions/gnomesActions';
 
 @connect(store => {
   return {
-    gnomes: store.gnomes,
-    fetched: store.fetched,
+    gnomes: store.gnomeReducer.gnomes,
+    fetched: store.gnomeReducer.fetched,
   };
 })
 export default class List extends React.Component {
@@ -15,7 +15,7 @@ export default class List extends React.Component {
     this.props.dispatch(fetchGnomes());
   }
   componentDidMount() {
-    console.log(this.props.gnomes);
+    console.log('DID MOUNT' + this.props.gnomes);
   }
 
   render() {

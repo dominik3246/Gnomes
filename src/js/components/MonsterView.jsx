@@ -2,6 +2,8 @@ import React from 'react';
 import { string, number } from 'prop-types';
 import avatar from '../../img/avatar.png';
 
+import { saveDataToChange } from '../actions/gnomesActions';
+
 import RequestChangeForm from './RequestChangeForm';
 
 export default class MonsterView extends React.Component {
@@ -24,6 +26,10 @@ export default class MonsterView extends React.Component {
   showForm = () => {
     this.setState({ isModalOpen: !this.state.isModalOpen });
     console.log(this.state.isModalOpen);
+  };
+
+  handleSubmitForm = values => {
+    this.props.dispatch(saveDataToChange(values));
   };
 
   render() {
@@ -56,9 +62,12 @@ export default class MonsterView extends React.Component {
         </div>
         {this.state.isModalOpen ? (
           <RequestChangeForm
-            name={this.props.name}
-            age={this.props.age}
-            strenght={this.props.strenght}
+            initialValues={{
+              newName: this.props.name,
+              newAge: this.props.age,
+              newStrenght: this.props.strenght,
+            }}
+            onSubmit={this.handleSubmitForm}
           />
         ) : null}
       </li>
