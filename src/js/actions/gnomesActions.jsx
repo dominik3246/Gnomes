@@ -17,3 +17,9 @@ export function fetchGnomes() {
       });
   };
 }
+
+export function saveDataToChange(arr) {
+  return (dispatch) => {
+    dispatch({ type: 'SAVE_DATA_TO_CHANGE', payload: arr });
+  };
+}

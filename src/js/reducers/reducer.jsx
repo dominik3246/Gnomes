@@ -4,6 +4,7 @@ export default function reducer(
     fetching: false,
     fetched: false,
     error: null,
+    dataToChange: [],
   },
   action,
 ) {
@@ -27,6 +28,12 @@ export default function reducer(
         fetching: false,
         fetched: true,
         gnomes: action.payload,
+      };
+    }
+    case 'SAVE_DATA_TO_CHANGE': {
+      return {
+        ...state,
+        dataToChange: action.payload,
       };
     }
     default:

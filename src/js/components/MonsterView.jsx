@@ -1,24 +1,73 @@
 import React from 'react';
+import { string, number } from 'prop-types';
 import avatar from '../../img/avatar.png';
 
-const MonsterView = props => (
-  <li className="monster__item list__item">
-    {console.log(props)}
-    <div className="monster__info">
-      <img className="monster__avatar" src={avatar} alt="" />
-      <div className="monster__identify">
-        <h5 className="monster__name little__title">{props.name}</h5>
-        <h6 className="monster__age little__subtitle">Age: {props.age}</h6>
-      </div>
-    </div>
-    <div className="monster__spec">
-      <div className="strength__bar">
-        <div className="strength__level" style={{ width: `${props.strenght}%` }} />
-      </div>
-      <p className="strength__number">{props.strenght}/100</p>
-      <h5 className="ability__name">Strenght</h5>
-    </div>
-  </li>
-);
+import RequestChangeForm from './RequestChangeForm';
 
-export default MonsterView;
+export default class MonsterView extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isMouseInside: false,
+      isModalOpen: false,
+    };
+  }
+
+  mouseEnter = () => {
+    this.setState({ isMouseInside: true });
+  };
+
+  mouseExit = () => {
+    this.setState({ isMouseInside: false });
+  };
+
+  showForm = () => {
+    this.setState({ isModalOpen: !this.state.isModalOpen });
+    console.log(this.state.isModalOpen);
+  };
+
+  render() {
+    return (
+      <li
+        onMouseEnter={this.mouseEnter}
+        onMouseLeave={this.mouseExit}
+        className="monster__item list__item"
+      >
+        <div className="item__row">
+          <div className="monster__info">
+            <img className="monster__avatar" src={avatar} alt="" />
+            <div className="monster__identify">
+              <h5 className="monster__name little__title">{this.props.name}</h5>
+              <h6 className="monster__age little__subtitle">Age: {this.props.age}</h6>
+            </div>
+          </div>
+          {this.state.isMouseInside ? (
+            <button className="btn__purple" onClick={() => this.showForm(false)}>
+              Change data
+            </button>
+          ) : null}
+          <div className="monster__spec">
+            <div className="strength__bar">
+              <div className="strength__level" style={{ width: `${this.props.strenght}%` }} />
+            </div>
+            <p className="strength__number">{this.props.strenght}/100</p>
+            <h5 className="ability__name">Strenght</h5>
+          </div>
+        </div>
+        {this.state.isModalOpen ? (
+          <RequestChangeForm
+            name={this.props.name}
+            age={this.props.age}
+            strenght={this.props.strenght}
+          />
+        ) : null}
+      </li>
+    );
+  }
+}
+
+MonsterView.propTypes = {
+  name: string.isRequired,
+  age: number.isRequired,
+  strenght: number.isRequired,
+};
