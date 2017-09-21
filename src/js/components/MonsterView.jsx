@@ -1,12 +1,13 @@
 import React from 'react';
 import { string, number } from 'prop-types';
 import avatar from '../../img/avatar.png';
+import { connect } from 'react-redux';
 
 import { saveDataToChange } from '../actions/gnomesActions';
 
 import RequestChangeForm from './RequestChangeForm';
 
-export default class MonsterView extends React.Component {
+class MonsterView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -25,10 +26,10 @@ export default class MonsterView extends React.Component {
 
   showForm = () => {
     this.setState({ isModalOpen: !this.state.isModalOpen });
-    console.log(this.state.isModalOpen);
   };
 
   handleSubmitForm = values => {
+    this.setState({ isModalOpen: false });
     this.props.dispatch(saveDataToChange(values));
   };
 
@@ -63,6 +64,7 @@ export default class MonsterView extends React.Component {
         {this.state.isModalOpen ? (
           <RequestChangeForm
             initialValues={{
+              id: this.props.id,
               newName: this.props.name,
               newAge: this.props.age,
               newStrenght: this.props.strenght,
@@ -74,6 +76,14 @@ export default class MonsterView extends React.Component {
     );
   }
 }
+
+const mapDispatchToProps = () => {
+  return {
+    saveDataToChange: saveDataToChange,
+  };
+};
+
+export default connect(mapDispatchToProps)(MonsterView);
 
 MonsterView.propTypes = {
   name: string.isRequired,

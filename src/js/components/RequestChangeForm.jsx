@@ -7,6 +7,10 @@ class RequestChangeForm extends React.Component {
       <div>
         <form className="change__form" onSubmit={this.props.handleSubmit}>
           <div className="field">
+            <label htmlFor="id">ID</label>
+            <Field name="id" component="input" type="text" props={{ disabled: true }} />
+          </div>
+          <div className="field">
             <label htmlFor="newName">New Name</label>
             <Field name="newName" type="text" component="input" />
           </div>

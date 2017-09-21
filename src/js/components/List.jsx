@@ -28,6 +28,7 @@ export default class List extends React.Component {
               return (
                 <MonsterView
                   key={gnome.id}
+                  id={gnome.id}
                   name={gnome.name}
                   strenght={gnome.strenght}
                   age={gnome.age}
