@@ -29,7 +29,7 @@ class MonsterView extends React.Component {
   };
 
   handleSubmitForm = values => {
-    this.setState({ isModalOpen: false });
+    this.setState({ isModalOpen: false, isMouseInside: false });
     this.props.dispatch(saveDataToChange(values));
   };
 
@@ -37,6 +37,7 @@ class MonsterView extends React.Component {
     return (
       <li
         onMouseEnter={this.mouseEnter}
+        onMouseMove={this.mouseEnter}
         onMouseLeave={this.mouseExit}
         className="monster__item list__item"
       >
@@ -49,7 +50,7 @@ class MonsterView extends React.Component {
             </div>
           </div>
           {this.state.isMouseInside ? (
-            <button className="btn__purple" onClick={() => this.showForm(false)}>
+            <button className="btn btn__purple" onClick={() => this.showForm(false)}>
               Change data
             </button>
           ) : null}

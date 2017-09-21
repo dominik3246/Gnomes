@@ -1,0 +1,21 @@
+@media screen and (max-width: 769px) {
+  .header {
+    .header-bar {
+      flex-direction: column;
+      height: 230px;
+    }
+  }
+
+  .list__item {
+    .item__row {
+      flex-direction: column;
+      align-items: center;
+      height: 180px;
+    }
+
+    .change__form {
+      flex-direction: column;
+      height: 300px;
+    }
+  }
+}

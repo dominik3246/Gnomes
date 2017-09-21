@@ -1,0 +1,52 @@
+$purple-dark: #250131;
+$purple-light: #af0075;
+$purple-lighter: #ac508f;
+
+a {
+  text-decoration: none;
+}
+#root {
+  font-family: "Work Sans", sans-serif;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+.btn {
+  border: 0;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn__purple {
+  background-color: $purple-light;
+  color: #ffffff;
+  transition: 0.5s;
+
+  &:hover {
+    background-color: $purple-lighter;
+    transition: 0.5s;
+  }
+}
+
+.little__title,
+.little__subtitle {
+  margin: 0;
+  color: $purple-dark;
+}
+
+.little__title {
+  font-weight: 600;
+}
+
+.little__subtitle {
+  font-weight: 400;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}

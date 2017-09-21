@@ -20,7 +20,7 @@ const Header = () => (
           </li>
         </ul>
       </div>
-      <button className="header-bar__button btn__purple">Create monster</button>
+      <button className="header-bar__button btn btn__purple">Create monster</button>
       <div className="header-bar__avatar">
         <img src={avatar} alt="" />
         <div className="avatar__person">

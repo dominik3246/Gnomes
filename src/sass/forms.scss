@@ -1,0 +1,35 @@
+input {
+  border-radius: 5px;
+  padding: 5px;
+  border: 0;
+  background-color: #edeef2;
+  border: 1px solid $purple-dark;
+}
+
+input:focus {
+  background-color: #f0f1f5;
+}
+
+.change__form {
+  display: flex;
+  height: 100px;
+  align-items: center;
+  justify-content: space-around;
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    label {
+      margin-right: 15px;
+      margin-bottom: 5px;
+    }
+    .gnome__id {
+      width: 50px;
+    }
+
+    input:disabled {
+      border: none;
+    }
+  }
+}

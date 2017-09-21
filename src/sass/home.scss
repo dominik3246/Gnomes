@@ -1,0 +1,51 @@
+.main {
+  background-color: #f9fafc;
+}
+
+.monster__item {
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 10px;
+  .monster__identify {
+    margin-left: 10px;
+    line-height: 18px;
+  }
+
+  .monster__info,
+  .monster__spec {
+    display: flex;
+    align-items: center;
+  }
+  .monster__spec {
+    .strength__bar {
+      width: 200px;
+      background-color: #edeef2;
+      border-radius: 10px;
+
+      .strength__level {
+        height: 10px;
+        border-radius: 10px;
+        background-color: $purple-light;
+        transition: width 0.2s ease-in-out;
+      }
+    }
+    .strength__number {
+      margin: 0 20px;
+    }
+  }
+}
+
+.main__title {
+  margin: 0;
+  padding: 20px 0;
+}
+
+.item__row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.list__item {
+  display: flex;
+  flex-direction: column;
+}
