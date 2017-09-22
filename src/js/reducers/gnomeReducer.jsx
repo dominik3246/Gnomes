@@ -5,6 +5,8 @@ export default function gnomeReducer(
     fetched: false,
     error: null,
     dataToChange: [],
+    patching: false,
+    patched: false,
   },
   action,
 ) {
@@ -30,10 +32,24 @@ export default function gnomeReducer(
         gnomes: action.payload,
       };
     }
-    case 'SAVE_DATA_TO_CHANGE': {
+    case 'PATCH_GNOMES': {
       return {
         ...state,
-        dataToChange: action.payload,
+        patching: true,
+      };
+    }
+    case 'PATCH_GNOMES_REJECTED': {
+      return {
+        ...state,
+        patching: false,
+        error: action.payload,
+      };
+    }
+    case 'PATCH_GNOMES_FULFILLED': {
+      return {
+        ...state,
+        patching: false,
+        patched: true,
       };
     }
     default:

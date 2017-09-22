@@ -5,23 +5,21 @@ export function fetchGnomes() {
     dispatch({ type: 'FETCH_GNOMES' });
 
     const URL =
-      'http://master.datasource.jazzy-hr.jzapp.io/api/v1/gnomes?_format=json&limit=10&offset=0';
+      'http://master.datasource.jazzy-hr.jzapp.io/api/v1/gnomes?_format=json&limit=100&offset=0';
     axios
       .get(URL)
       .then((response) => {
-        console.log(response.data);
         dispatch({ type: 'FETCH_GNOMES_FULFILLED', payload: response.data });
       })
-      .catch((err) => {
-        dispatch({ type: 'FETCH_WEATHER_REJECTED', payload: err });
+      .catch((error) => {
+        dispatch({ type: 'FETCH_WEATHER_REJECTED', payload: error });
       });
   };
 }
 
-export function saveDataToChange(data) {
+export function sendDataRequestChange(data) {
   return (dispatch) => {
-    dispatch({ type: 'SAVE_DATA_TO_CHANGE', payload: data });
-
+    dispatch({ type: 'PATCH_GNOMES' });
     axios
       .patch(`http://master.datasource.jazzy-hr.jzapp.io/api/v1/gnomes/${data.id}`, {
         id: data.id,
@@ -30,11 +28,13 @@ export function saveDataToChange(data) {
         strenght: data.newStrenght,
       })
       .then((response) => {
-        console.log(response);
         dispatch(fetchGnomes());
+        dispatch({ type: 'PATCH_GNOMES_FULFILLED' });
       })
       .catch((error) => {
         console.log(error);
+        dispatch({ type: 'PATCH_GNOMES_REJECTED', payload: error });
+
         dispatch(fetchGnomes());
       });
   };

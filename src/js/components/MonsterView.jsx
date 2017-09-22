@@ -3,7 +3,7 @@ import { string, number } from 'prop-types';
 import avatar from '../../img/avatar.png';
 import { connect } from 'react-redux';
 
-import { saveDataToChange } from '../actions/gnomesActions';
+import { sendDataRequestChange } from '../actions/gnomesActions';
 
 import RequestChangeForm from './RequestChangeForm';
 
@@ -30,7 +30,7 @@ class MonsterView extends React.Component {
 
   handleSubmitForm = values => {
     this.setState({ isModalOpen: false, isMouseInside: false });
-    this.props.dispatch(saveDataToChange(values));
+    this.props.dispatch(sendDataRequestChange(values));
   };
 
   render() {
@@ -80,7 +80,7 @@ class MonsterView extends React.Component {
 
 const mapDispatchToProps = () => {
   return {
-    saveDataToChange: saveDataToChange,
+    sendDataRequestChange: sendDataRequestChange,
   };
 };
 
