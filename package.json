@@ -6,7 +6,7 @@
   "author": "Dominik Kurbiel",
   "license": "MIT",
   "scripts": {
-    "build": "webpack",
+    "build": "yarn & webpack & webpack-dev-server --hot",
     "start": "webpack-dev-server --hot"
   },
   "dependencies": {

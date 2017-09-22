@@ -1,3 +1,29 @@
+## Installation
+
+Follow the instructions below
+
+1. Clone this repository 
+
+2. Navigate to **Gnomes** directory and type following command:
+```
+yarn build
+```
+
+Dependencies should be downloaded and the project built
+
+3. Open a browser and access [http://localhost:3000](http://localhost:3000)] or open directly from directory.
+
+
+Thanks for your time! :)
+
+---------
+Created by Dominik Kurbiel
+
+
+
+
+-----------------------------------------
+
 Hi!:)
 
 ## Overview
