@@ -3,7 +3,7 @@ import { Field, reduxForm } from 'redux-form';
 import { func } from 'prop-types';
 
 const RequestChangeForm = props => (
-  <div>
+  <div className="form__section">
     <form className="change__form" onSubmit={props.handleSubmit}>
       <div className="field">
         <label htmlFor="id">ID</label>
@@ -40,4 +40,6 @@ RequestChangeForm.propTypes = {
 
 export default reduxForm({
   form: 'changeForm',
+  keepDirtyOnReinitialize: true,
+  enableReinitialize: true,
 })(RequestChangeForm);

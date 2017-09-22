@@ -7,7 +7,6 @@ module.exports = {
   entry: ['./src/js/index.js', './src/sass/style.scss'],
   output: {
     path: `${__dirname}/dist/`,
-    publicPath: '/',
     filename: 'bundle.js',
   },
   module: {

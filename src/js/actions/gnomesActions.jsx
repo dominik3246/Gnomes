@@ -30,6 +30,7 @@ export function sendDataRequestChange(data) {
       .then((response) => {
         dispatch(fetchGnomes());
         dispatch({ type: 'PATCH_GNOMES_FULFILLED' });
+        console.log(response);
       })
       .catch((error) => {
         console.log(error);
