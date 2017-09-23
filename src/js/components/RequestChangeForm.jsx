@@ -13,19 +13,20 @@ const RequestChangeForm = props => (
           component="input"
           type="text"
           props={{ disabled: true }}
+          placeholder={props.id}
         />
       </div>
       <div className="field">
         <label htmlFor="newName">New Name</label>
-        <Field name="newName" type="text" component="input" />
+        <Field name="newName" type="text" component="input" placeholder={props.newName}/>
       </div>
       <div className="field">
         <label htmlFor="newAge">New age</label>
-        <Field name="newAge" type="number" min="0" max="100" component="input" />
+        <Field name="newAge" type="number" min="0" max="100" component="input" placeholder={props.newAge} />
       </div>
       <div className="field">
         <label htmlFor="newStrenght">New strenght</label>
-        <Field name="newStrenght" type="number" min="0" max="100" component="input" />
+        <Field name="newStrenght" type="number" min="0" max="100" component="input" placeholder={props.newStrenght} />
       </div>
       <button className="btn btn__purple" type="submit">
         Send change request
@@ -40,6 +41,5 @@ RequestChangeForm.propTypes = {
 
 export default reduxForm({
   form: 'changeForm',
-  keepDirtyOnReinitialize: true,
   enableReinitialize: true,
 })(RequestChangeForm);

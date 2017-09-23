@@ -1,48 +1,42 @@
 import React from 'react';
 import { string, number } from 'prop-types';
-import { connect } from 'react-redux';
 
-import { sendDataRequestChange } from '../actions/gnomesActions';
+export default class MonsterView extends React.Component {
+  constructor() {
+    super();
 
-import RequestChangeForm from './RequestChangeForm';
-
-class MonsterView extends React.Component {
-  constructor(props) {
-    super(props);
     this.state = {
-      isMouseInside: false,
-      isModalOpen: false,
+      isHover: false,
     };
   }
 
-  mouseEnter = () => {
-    this.setState({ isMouseInside: true });
+  onMouseOver = () => {
+    if (this.state.isHover === true) {
+      return this.state;
+    }
+    this.setState({ ...this.state, isHover: true });
   };
 
-  mouseExit = () => {
-    this.setState({ isMouseInside: false });
-  };
+  componentWillReceiveProps() {
+    this.setState({
+      isHover: false,
+    });
+  }
 
-  showForm = () => {
-    this.setState({ isModalOpen: !this.state.isModalOpen });
-  };
-
-  closeForm = () => {
-    this.setState({ isModalOpen: false });
-  };
-
-  handleSubmitForm = values => {
-    this.setState({ isModalOpen: false, isMouseInside: false });
-    this.props.dispatch(sendDataRequestChange(values));
+  onMouseLeave = () => {
+    if (this.state.isHover === false) {
+      return this.state;
+    }
+    this.setState({ ...this.state, isHover: false });
   };
 
   render() {
     return (
       <li
-        onMouseEnter={this.mouseEnter}
-        onMouseMove={this.mouseEnter}
-        onMouseLeave={this.mouseExit}
         className="monster__item list__item"
+        onMouseOver={() => this.onMouseOver()}
+        onMouseMove={() => this.onMouseOver()}
+        onMouseLeave={() => this.onMouseLeave()}
       >
         <div className="item__row">
           <div className="monster__info">
@@ -52,11 +46,7 @@ class MonsterView extends React.Component {
               <h6 className="monster__age little__subtitle">Age: {this.props.age}</h6>
             </div>
           </div>
-          {this.state.isMouseInside ? (
-            <button className="btn btn__purple" onClick={() => this.showForm(false)}>
-              Change data
-            </button>
-          ) : null}
+          {this.state.isHover ? this.props.children[0] : null}
           <div className="monster__spec">
             <div className="strength__bar">
               <div className="strength__level" style={{ width: `${this.props.strenght}%` }} />
@@ -65,30 +55,11 @@ class MonsterView extends React.Component {
             <h5 className="ability__name">Strenght</h5>
           </div>
         </div>
-        {this.state.isModalOpen ? (
-          <RequestChangeForm
-            isModalOpen={this.state.isModalOpen}
-            initialValues={{
-              id: this.props.id,
-              newName: this.props.name,
-              newAge: this.props.age,
-              newStrenght: this.props.strenght,
-            }}
-            onSubmit={this.handleSubmitForm}
-          />
-        ) : null}
+        {this.props.children[1]}
       </li>
     );
   }
 }
-
-const mapDispatchToProps = () => {
-  return {
-    sendDataRequestChange: sendDataRequestChange,
-  };
-};
-
-export default connect(mapDispatchToProps)(MonsterView);
 
 MonsterView.propTypes = {
   name: string.isRequired,

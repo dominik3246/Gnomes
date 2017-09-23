@@ -5,7 +5,7 @@ export function fetchGnomes() {
     dispatch({ type: 'FETCH_GNOMES' });
 
     const URL =
-      'http://master.datasource.jazzy-hr.jzapp.io/api/v1/gnomes?_format=json&limit=100&offset=0';
+      'http://master.datasource.jazzy-hr.jzapp.io/api/v1/gnomes?_format=json&limit=10&offset=0';
     axios
       .get(URL)
       .then((response) => {
@@ -38,5 +38,16 @@ export function sendDataRequestChange(data) {
 
         dispatch(fetchGnomes());
       });
+  };
+}
+
+export function mouseHover(value) {
+  return (dispatch) => {
+    if (value) {
+      dispatch({ type: 'MOUSE_HOVER' });
+      console.log('hover');
+    }
+    dispatch({ type: 'MOUSE_NOT_HOVER' });
+    console.log('not hover');
   };
 }

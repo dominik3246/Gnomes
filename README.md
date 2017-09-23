@@ -11,7 +11,7 @@ yarn build
 
 Dependencies should be downloaded and the project built
 
-3. Open a browser and access [http://localhost:3000](http://localhost:3000)] or open directly from directory.
+3. Open a browser and access [http://localhost:3000](http://localhost:3000) or open directly from directory.
 
 
 Thanks for your time! :)
