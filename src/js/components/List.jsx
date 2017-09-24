@@ -10,6 +10,8 @@ import { fetchGnomes, sendDataRequestChange, mouseHover } from '../actions/gnome
     gnomes: store.gnomeReducer.gnomes,
     fetched: store.gnomeReducer.fetched,
     isMouseOver: store.gnomeReducer.isMouseOver,
+    error: store.gnomeReducer.error,
+    responseCode: store.gnomeReducer.responseCode,
   };
 })
 export default class List extends React.Component {
@@ -28,9 +30,13 @@ export default class List extends React.Component {
     this.setState({ currentItemID });
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.gnomes != this.props.gnomes) {
+      this.setState({ currentItemID: undefined });
+    }
+  }
   handleSubmitForm = values => {
     this.props.dispatch(sendDataRequestChange(values));
-    this.setState({ currentItemID: undefined });
   };
 
   render() {

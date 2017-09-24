@@ -4,6 +4,7 @@ export default function gnomeReducer(
     fetching: false,
     fetched: false,
     error: null,
+    responseCode: null,
     dataToChange: [],
     patching: false,
     patched: false,
@@ -42,7 +43,7 @@ export default function gnomeReducer(
       return {
         ...state,
         patching: false,
-        error: action.payload,
+        responseCode: action.payload,
       };
     }
     case 'PATCH_GNOMES_FULFILLED': {
@@ -50,6 +51,7 @@ export default function gnomeReducer(
         ...state,
         patching: false,
         patched: true,
+        responseCode: action.payload,
       };
     }
     default:

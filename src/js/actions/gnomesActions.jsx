@@ -29,25 +29,12 @@ export function sendDataRequestChange(data) {
       })
       .then((response) => {
         dispatch(fetchGnomes());
-        dispatch({ type: 'PATCH_GNOMES_FULFILLED' });
+        dispatch({ type: 'PATCH_GNOMES_FULFILLED', payload: response.status });
         console.log(response);
       })
       .catch((error) => {
         console.log(error);
-        dispatch({ type: 'PATCH_GNOMES_REJECTED', payload: error });
-
-        dispatch(fetchGnomes());
+        dispatch({ type: 'PATCH_GNOMES_REJECTED', payload: 'CODE 422' });
       });
-  };
-}
-
-export function mouseHover(value) {
-  return (dispatch) => {
-    if (value) {
-      dispatch({ type: 'MOUSE_HOVER' });
-      console.log('hover');
-    }
-    dispatch({ type: 'MOUSE_NOT_HOVER' });
-    console.log('not hover');
   };
 }
