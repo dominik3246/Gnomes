@@ -17,12 +17,13 @@
       margin: 0 10px;
     }
   }
+}
 
-  &__avatar {
-    display: flex;
-    align-items: center;
-    .avatar__person {
-      margin-left: 10px;
-    }
+.avatar__info {
+  display: flex;
+  align-items: center;
+  .avatar__identity {
+    margin-left: 10px;
+    line-height: 18px;
   }
 }

@@ -64,6 +64,7 @@ export default class List extends React.Component {
 
                   {this.state.currentItemID === gnome.id ? (
                     <RequestChangeForm
+                      form={`forms${gnome.id}`}
                       initialValues={{
                         id: gnome.id,
                         newName: gnome.name,

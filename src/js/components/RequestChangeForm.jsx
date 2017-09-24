@@ -1,6 +1,6 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import { func } from 'prop-types';
+import { func, string, number } from 'prop-types';
 
 const RequestChangeForm = props => (
   <div className="form__section">
@@ -41,7 +41,7 @@ const RequestChangeForm = props => (
           placeholder={props.newStrenght}
         />
       </div>
-      <button className="btn btn__purple" type="submit" disabled={props.submitting}>
+      <button className="btn btn__purple" type="submit">
         Send change request
       </button>
     </form>
@@ -50,6 +50,9 @@ const RequestChangeForm = props => (
 
 RequestChangeForm.propTypes = {
   handleSubmit: func.isRequired,
+  newName: string.isRequired,
+  newAge: number.isRequired,
+  newStrenght: number.isRequired,
 };
 
 export default reduxForm({

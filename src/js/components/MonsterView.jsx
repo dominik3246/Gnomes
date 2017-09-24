@@ -39,9 +39,9 @@ export default class MonsterView extends React.Component {
         onMouseLeave={() => this.onMouseLeave()}
       >
         <div className="item__row">
-          <div className="monster__info">
-            <img className="monster__avatar" src={require('../../img/avatar.png')} alt="" />
-            <div className="monster__identify">
+          <div className="monster__info avatar__info">
+            <img src={require('../../img/avatar.png')} alt="" />
+            <div className="avatar__identity">
               <h5 className="monster__name little__title">{this.props.name}</h5>
               <h6 className="monster__age little__subtitle">Age: {this.props.age}</h6>
             </div>
