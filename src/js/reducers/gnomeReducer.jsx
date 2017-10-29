@@ -30,6 +30,7 @@ export default function gnomeReducer(
         ...state,
         fetching: false,
         fetched: true,
+        error: null,
         gnomes: action.payload,
       };
     }

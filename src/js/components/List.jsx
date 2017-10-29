@@ -9,9 +9,9 @@ import { fetchGnomes, sendDataRequestChange, mouseHover } from '../actions/gnome
   return {
     gnomes: store.gnomeReducer.gnomes,
     fetched: store.gnomeReducer.fetched,
-    isMouseOver: store.gnomeReducer.isMouseOver,
     error: store.gnomeReducer.error,
     responseCode: store.gnomeReducer.responseCode,
+    patching: store.gnomeReducer.patching,
   };
 })
 export default class List extends React.Component {
@@ -76,6 +76,8 @@ export default class List extends React.Component {
                       newAge={gnome.age}
                       newStrenght={gnome.strenght}
                       onSubmit={this.handleSubmitForm}
+                      responseCode={this.props.responseCode}
+                      patching={this.props.patching}
                     />
                   ) : null}
                 </MonsterView>

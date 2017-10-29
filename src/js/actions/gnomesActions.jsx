@@ -12,7 +12,7 @@ export function fetchGnomes() {
         dispatch({ type: 'FETCH_GNOMES_FULFILLED', payload: response.data });
       })
       .catch((error) => {
-        dispatch({ type: 'FETCH_WEATHER_REJECTED', payload: error });
+        dispatch({ type: 'FETCH_GNOMES_REJECTED', payload: error });
       });
   };
 }
@@ -34,7 +34,7 @@ export function sendDataRequestChange(data) {
       })
       .catch((error) => {
         console.log(error);
-        dispatch({ type: 'PATCH_GNOMES_REJECTED', payload: 'CODE 422' });
+        dispatch({ type: 'PATCH_GNOMES_REJECTED', payload: 'Error' });
       });
   };
 }

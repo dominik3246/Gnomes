@@ -43,8 +43,10 @@ const RequestChangeForm = props => (
       </div>
       <button className="btn btn__purple" type="submit">
         Send change request
+        {props.patching ? <span className="loading__line" /> : null}
       </button>
     </form>
+    {props.responseCode === 200 ? null : <p className="response__code">{props.responseCode}</p>}
   </div>
 );
 

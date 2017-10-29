@@ -33,3 +33,30 @@ input:focus {
     }
   }
 }
+
+.response__code {
+  text-align: right;
+  padding-right: 10%;
+  color: red;
+}
+
+.loading__line {
+  position: absolute;
+  bottom: 0px;
+  border-radius: 5px;
+  left: 0px;
+  width: 0%;
+  height: 38px;
+  background: rgba(255, 255, 255, 0.5);
+  -webkit-animation: load 1s linear infinite;
+  animation: load 0.1s linear;
+}
+
+@keyframes load {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
